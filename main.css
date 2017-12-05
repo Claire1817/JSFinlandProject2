@@ -1,0 +1,7 @@
+li {
+    display:block
+}
+
+.highlight, .highlight_stay{
+    color:red;
+}
