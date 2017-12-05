@@ -1,14 +1,15 @@
-var access_token="BQCUBmC4tFBNJS7AI9iiO912txkmJ3yRJAcIXiEJkfPhB8AMwUfsvDNoUQKt3Q-OyITYuvEilGHfbSBzWZn_fi6ZjpSGH4nCfF300oJJo-ud2Ou24ue4i11DGJChjk3BDipfhhapuu1rD_UA8oQH4zWdRTYD&refresh_token=AQA7hGBnnHfbCK--eDRo4PT3r2yH93llI_3GHjTo_cvsP2bbJR6uCH57P2MdzR_XFCp224yV5Dli18ATHZ5c88dqArBfsp-lkHJj1_CQ8OTYwh6y3kwvEcp81YVMBe2IVAk"
+var accessToken="BQDYcaahWiEm11sKfLC4DmAjFyjrFhVJCrKVQTRhfGFW6hwNcXp52RxNSxIWimFCEEJmlysfugLDw7LveFGBA0QDib1heBdYy2v_DPwA6DB_AB_UNmCxC3GebGbGpIBDGFohjvbVVTm5DpUkC0ZUKRA5nxX7&refresh_token=AQCcpfBfXoEbkFRDj9_PB0bCsCLuAnvjDqIlJxroPYQ8DbdJqMvcuf3UdP-PPc7NUbZLi-QrwDQJ6Fs7oAwghmdtGiCyxPwse3CKGwGR9gMfmX87jzPfc-9udLm6L2XSUSE"
+var spotify_url = "https://api.spotify.com/v1/"
 
 function getEventTarget(e) {
     e = e || window.event;
     return e.target || e.srcElement; 
 }
 
-var ul_list_artist = document.getElementById('artist_list');
-ul_list_artist.onclick = function(event) {
-    var target = getEventTarget(event);
-    console.log(target);
+function getArtist(value) {
+    console.log(value);
+    loadArtistInfo(value);
+    //   window.location.href="file:///C:/Users/clair/Documents/FinlandeProjet/JSFinlandProjet2/artistDescription.html"
 }
 
 $(function(){
@@ -22,3 +23,20 @@ $(function(){
           $(this).addClass('highlight_stay');
      });
 });
+
+function loadArtistInfo(target) {
+    console.log(target);
+    $.ajax({
+        type: "GET",
+        url: spotify_url + 'search?q='+target+'&type=artist',
+        async: false,
+        headers: {
+            'Authorization' : 'Bearer ' + accessToken
+        },
+        sucess: function(resp) {
+            console.log(resp);
+        },
+        failure: function() {
+            console.log("FAILURE");
+        }})
+}
