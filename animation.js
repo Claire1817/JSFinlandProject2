@@ -1,6 +1,19 @@
 $("#op").click(function(){
-    console.log("LOL");
     $("#card-album").animate({
         opacity: '1',
     });
 });
+
+function display_artist() {
+
+}
+
+function display_albums() {
+
+}
+
+function display_album() {
+
+}
+
+function 
