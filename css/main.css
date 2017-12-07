@@ -1,0 +1,138 @@
+li {
+    display:block
+}
+
+.highlight, .highlight_stay{
+    color:red;
+}
+
+.background_fond {
+    background-color: #181818;
+}
+
+.background_body {
+    background-image: linear-gradient(rgb(119, 33, 50), rgb(11, 3, 5) 85%);
+    background-size : cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vh;
+}
+
+.navbar-container {
+    width: 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,.5);
+    overflow: auto;
+    min-height: 0!important;
+    will-change: transform;
+}
+
+.margin-page {
+    padding-top:20%;
+}
+
+.font-navbar {
+    font-size: 125%;
+    color: darkgray;
+}
+
+.font-body {
+    color: darkgray;
+}
+
+.font-navbar {
+    color: grey;
+}
+
+.content-field {
+    padding : 4%; 
+    width: 90%;
+    float: right;
+}
+
+.search_field {
+    border-top: 1px solid hsla(0,0%,100%,.25) !important;
+    border-bottom: 1px solid hsla(0,0%,100%,.25) !important;
+    background-color: inherit !important;
+    font-size: 125%;
+    color: darkgray;
+}
+
+.tab-button {
+    margin: 0px 5px;
+    padding : 5px;
+    /*border: 1px solid darkgrey !important;*/
+}
+
+.artiste_portrait {
+    width: inherit;
+    height: 20rem;
+}
+
+.artist_name {
+    font-size: 20px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.artist_description {
+    font-size: 15px
+}
+
+.album_image {
+    width: inherit;
+    height: inherit;
+}
+
+.block_album {
+    display: block;
+}
+
+.left-card {
+    width: 20%;
+    float: left;
+}
+
+.right-card {
+    width: 80%;
+    float: right;
+}
+
+.card-img-bottom {
+    color: #fff;
+    height: inherit;
+    width: inherit;
+    background: url(default.jpg) center no-repeat;
+    background-size: cover;
+  }
+  
+.card-image_album {
+    width: 100%;
+}
+
+.scroll-box {
+    overflow-y: scroll;
+    max-height: 15rem;
+}
+
+.card-album {
+    background-color: rgba(0,0,0,.5);
+    max-height:20rem;
+}
+
+.bg-card {
+    background-color: inherit;
+}
+
+.padding-list {
+    padding-left: 0;
+}
+
+.opacity-card-album {
+    opacity: 0;
+}
