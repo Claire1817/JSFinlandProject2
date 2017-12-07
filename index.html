@@ -5,14 +5,64 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">    
-    <link rel="stylesheet" type="text/css" href="main.css">
-    Fucking project 2
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
 </head>
-<body>
-    <ul class="list-group" id="artist_list">
-        <li class="list-group-item" onclick="getArtist('Lorie')">Three days grace</li>
-        <li class="list-group-item" onClick="getArtist('Artic%20Monkeys')">Artic Monkeys</li>
-    </ul>
+<body class="background_fond">
+    <div class="background_body">
+        <div class="navbar-container">
+            <nav class="navbar margin-page" >
+                    <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link font-navbar" href="#">Home</a>
+                            </li>
+                            <form class="form-inline">
+                                <div class="input-group">
+                                    <input type="text" class="form-control search_field" placeholder="Search" aria-describedby="basic-addon1">
+                                    <span class="input-group-addon search_field" id="basic-addon1"><i class="fa fa-spotify" aria-hidden="true"></i></span>
+                                </div>
+                            </form>                    
+                    </ul>
+            </nav>
+        </div>
+        <div class="content-field">
+        <div class="row font-body">
+                <div class="col-3">
+                    <img id="photo_artist" class="artiste_portrait" src="./default.jpg">
+                    <p id="name_artist" class="artist_name">LE NOM</p>
+                    <p id="description_artist" class="artist_description">DESCRIPTION</p>
+                </div>
+                <div id="artist_albums" class="col-8 row">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 block_album">
+                        <img class="album_image" src="./default.jpg">
+                        <p class="text-center">Album 1</p>
+                    </div>
+                </div>
+        </div>
+        <div id="card-album" class="opacity-card-album">
+            <div class="card card-album">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card-img-bottom">
+                            <img src="default.jpg" id="card-album-img" class="card-image_album">
+                        </div>
+                    </div>            
+                    <div class="col-md-8">
+                        <div class="card-header bg-card font-navbar" id="card-album-title">
+                            Album name
+                        </div>
+                        <div class="card-block bg-card scroll-box">
+                            <ul class="list-group list-group-flush" id="card-album-song">
+                                <li class="list-group-item bg-card font-navbar padding-list">chanson1</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <script src="./spotify.js"></script>
+    <script src="./animation.js"></script>    
 </body>
 </html>
