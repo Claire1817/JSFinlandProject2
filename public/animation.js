@@ -1,8 +1,8 @@
-$("#op").click(function(){
+/*$("#op").click(function(){
     $("#card-album").animate({
         opacity: '1',
     });
-});
+});*/
 
 function display_artist() {
 
@@ -16,4 +16,6 @@ function display_album() {
 
 }
 
-function 
+function display_song() {
+
+}

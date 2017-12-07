@@ -4,9 +4,11 @@ const request = require('request');
 
 const express = require('express')
 
+const bodyParser = require('body-parser');
+
 const app = express()
 
-const port = 4242;
+const port = 3000;
 
 var client_id = 'd8c9612369ca4e99b0e3fb17245cea09';
 
@@ -14,18 +16,12 @@ var client_secret = '5c8ef1a7fab5482bb1da2a52d4b71042';
 
 var redirect_url = 'http://localhost:8888/callback/'
 
+app.use(require('express').static('public'));
+
 app.get('/', (req, response) => {
-    response.send('Hello from Express!')
+    response.render('index.ejs');
   })
   
-/*  app.listen(port, (err) => {
-    if (err) {
-      return console.log('something bad happened', err)
-    }
-  
-    console.log(`server is listening on ${port}`)
-  })*/
-
 var tooken;
 
  app.get('/getToken', (req, response) => {
