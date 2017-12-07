@@ -12,7 +12,7 @@
     <div class="background_body">
         <div class="navbar-container">
             <nav class="navbar margin-page" >
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto" id="listArtist">
                             <li class="nav-item active">
                                 <a class="nav-link font-navbar" href="#">Home</a>
                             </li>
@@ -21,15 +21,14 @@
                                     <input type="text" class="form-control search_field" placeholder="Search" aria-describedby="basic-addon1">
                                     <span class="input-group-addon search_field" id="basic-addon1"><i class="fa fa-spotify" aria-hidden="true"></i></span>
                                 </div>
-                            </form>                    
+                            </form>    
                     </ul>
             </nav>
         </div>
         <div class="content-field">
         <div class="row font-body">
                 <div class="col-3">
-                    <a href="#" id="op">LOL</a>
-                    <img id="photo_artist" class="artiste_portrait" src="./default.jpg">
+                   <img id="photo_artist" class="artiste_portrait" src="./default.jpg">
                     <p id="name_artist" class="artist_name">LE NOM</p>
                     <p id="description_artist" class="artist_description">DESCRIPTION</p>
                 </div>
@@ -63,8 +62,8 @@
         </div>
     </div>
     </div>
+    <script src="./conf.js"></script>
     <script src="./spotify.js"></script>
     <script src="./animation.js"></script>    
-    <script src="./conf.js"></script>
 </body>
 </html>

@@ -25,20 +25,20 @@ $(function(){
      });
 });
 
-function loadArtistInfo(target) {
+function loadArtistInfo(target=null) {
     console.log(target);
     $.ajax({
         type: "GET",
-        url: spotify_url + 'search?q='+target+'&type=artist',
+        url: spotify_url + 'artists/'+target,
         async: false,
         headers: {
-            'Authorization' : 'Bearer ' + accessToken
+            'Authorization' : 'Bearer ' + token
         },
-        sucess: function(resp) {
+        success: function(resp) {
             console.log(resp);
         },
-        failure: function() {
-            console.log("FAILURE");
+        error: function() {
+            getToken(loadArtistInfo,target);
         }})
 }
 
@@ -46,8 +46,9 @@ function getToken(callback=null, arg=null) {
     $.ajax({
         type: "GET",
         url: API_ENDPOINT + "/getToken",
-        sucess: function (resp) {
-            console.log(resp.access_token);
+        accepts: "application/json; charset=utf-8",
+        async: true,
+        success: function (resp) {
             token = resp.access_token;
             if (callback)
                 callback(arg);
@@ -55,9 +56,9 @@ function getToken(callback=null, arg=null) {
         failure: function() {
             console.log("FAILURE");
         }
-    })
+    });
 }
 
 $("#op").click(function(){
-    getToken();
+    loadArtistInfo();
 });
