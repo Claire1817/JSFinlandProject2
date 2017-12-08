@@ -28,6 +28,7 @@ function display_artist_info(artist) {
 }
 
 function display_artist_albums(albums) {
+    $("#artist_albums").empty();
     for (item in albums.items) {
         $("#artist_albums").append($("<div id='" + albums.items[item].id + "' class='col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 block_album'><img class='album_image' src='"+ albums.items[item].images[2].url +"'><p class='text-center'>"+ albums.items[item].name +"</p></div>"))
         $("#"+albums.items[item].id).on("click", {album:albums.items[item]}, display_album)
