@@ -135,3 +135,8 @@ li {
 .opacity-card-album {
     opacity: 0;
 }
+
+.scroll_album {
+    overflow-y: scroll;
+    max-height: 15rem;        
+}
