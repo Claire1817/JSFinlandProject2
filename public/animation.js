@@ -49,7 +49,7 @@ function display_album(album) {
 function display_song(songs) {
     $("#card-album-song").empty();
     for (item in songs.items) {
-        $("#card-album-song").append("<li id='" + songs.items[item].id + "' class='list-group-item bg-card font-navbar padding-list'>"+ songs.items[item].name +"</li>")
+        $("#card-album-song").append("<li id='" + songs.items[item].id + "' class='list-group-item bg-card font-navbar padding-list'>"+ songs.items[item].name +"</li><iframe src='https://open.spotify.com/embed?uri="+ songs.items[item].uri + "' frameborder='0' allowtransparency='true'></iframe>")
     }
 }
 
