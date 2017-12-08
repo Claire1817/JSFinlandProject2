@@ -112,6 +112,7 @@ li {
   
 .card-image_album {
     width: 100%;
+    height: 100%;
 }
 
 .scroll-box {
@@ -138,5 +139,5 @@ li {
 
 .scroll_album {
     overflow-y: scroll;
-    max-height: 15rem;        
+    max-height: 25rem;
 }

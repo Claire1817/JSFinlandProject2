@@ -1,7 +1,5 @@
 /*$("#op").click(function(){
-    $("#card-album").animate({
-        opacity: '1',
-    });
+    
 });*/
 
 
@@ -37,11 +35,23 @@ function display_artist_albums(albums) {
 }
 
 function display_album(album) {
-
+    album = album.data.album;
+    console.log(album);
+    $("#card-album").animate({
+        opacity: '1',
+    });
+    $("#card-album-img").attr("src", album.images[1].url);
+    $("#card-album-title").text(album.name);
+    loadAlbumTracks(album.id);
 }
 
-function display_song() {
-
+function display_song(songs) {
+    songs = songs
+    console.log("LOL")
+    console.log(songs);
+    for (item in songs.items) {
+        $("#card-album-song").append("<li id='" + songs.items[item].id + "' class='list-group-item bg-card font-navbar padding-list'>"+ songs.items[item].name +"</li>")
+    }
 }
 
 display_list_artist();

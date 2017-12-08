@@ -60,6 +60,23 @@ function loadArtistAlbum(target=null) {
         }})    
 }
 
+function loadAlbumTracks(target=null) {
+    $.ajax({
+        type: "GET",
+        url: spotify_url + 'albums/'+target+'/tracks',
+        async: false,
+        headers: {
+            'Authorization' : 'Bearer ' + token
+        },
+        success: function(resp) {
+            console.log(resp);
+            display_song(resp);
+        },
+        error: function() {
+            getToken(loadAlbumTracks,target);
+        }})    
+}
+
 function getToken(callback=null, arg=null) {
     $.ajax({
         type: "GET",
