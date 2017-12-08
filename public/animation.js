@@ -46,9 +46,7 @@ function display_album(album) {
 }
 
 function display_song(songs) {
-    songs = songs
-    console.log("LOL")
-    console.log(songs);
+    $("#card-album-song").empty();
     for (item in songs.items) {
         $("#card-album-song").append("<li id='" + songs.items[item].id + "' class='list-group-item bg-card font-navbar padding-list'>"+ songs.items[item].name +"</li>")
     }
