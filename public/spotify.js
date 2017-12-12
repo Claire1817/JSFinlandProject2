@@ -10,22 +10,9 @@ function getEventTarget(e) {
 function getArtist(value) {
     console.log(value);
     loadArtistInfo(value);
-    //   window.location.href="file:///C:/Users/clair/Documents/FinlandeProjet/JSFinlandProjet2/artistDescription.html"
 }
 
-/*$(function(){
-    $('li').hover(function(){
-         $(this).addClass('highlight');
-     }, function(){
-         $(this).removeClass('highlight');
-     });
-
-     $('li').click(function(){
-          $(this).addClass('highlight_stay');
-     });
-});*/
-
-function loadArtistInfo(target=null) {
+function loadArtistInfo(target=null, ttl=0) {
     console.log(target);
     $.ajax({
         type: "GET",
@@ -39,7 +26,24 @@ function loadArtistInfo(target=null) {
             display_artist_info(resp);
         },
         error: function() {
-            getToken(loadArtistInfo,target);
+            getToken(loadArtistInfo,target, ttl+1);
+        }})
+}
+
+function loadDatafromUrl(target=null, ttl=0) {
+    console.log(target);
+    $.ajax({
+        type: "GET",
+        url: href_next,
+        async: false,
+        headers: {
+            'Authorization' : 'Bearer ' + token
+        },
+        success: function(resp) {
+            display_artist_albums(resp);
+        },
+        error: function() {
+            getToken(loadDatafromUrl,target, ttl+1);
         }})
 }
 

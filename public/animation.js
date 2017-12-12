@@ -1,7 +1,4 @@
-/*$("#op").click(function(){
-    
-});*/
-
+var href_next = ""
 
 function display_list_artist() {
     for(item in artists) {
@@ -32,6 +29,15 @@ function display_artist_albums(albums) {
     for (item in albums.items) {
         $("#artist_albums").append($("<div id='" + albums.items[item].id + "' class='col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 block_album'><img class='album_image' src='"+ albums.items[item].images[2].url +"'><p class='text-center'>"+ albums.items[item].name +"</p></div>"))
         $("#"+albums.items[item].id).on("click", {album:albums.items[item]}, display_album)
+    }
+    if (albums.next) {
+        showItem("loader");
+        href_next = albums.next;
+        $("#loader").on("click", {}, loadDatafromUrl);
+    }
+    else {
+        hideItem("loader");
+        href_next = null;
     }
 }
 
