@@ -43,7 +43,7 @@ function loadArtistInfo(target=null) {
         }})
 }
 
-function loadArtistAlbum(target=null) {
+function loadArtistAlbum(target=null, ttl=0) {
     $.ajax({
         type: "GET",
         url: spotify_url + 'artists/'+target+'/albums',
@@ -56,11 +56,13 @@ function loadArtistAlbum(target=null) {
             display_artist_albums(resp);
         },
         error: function() {
-            getToken(loadArtistAlbum,target);
-        }})    
+            if (ttl < 10) {
+                getToken(loadArtistAlbum,target, ttl+1);
+            }
+        }})
 }
 
-function loadAlbumTracks(target=null) {
+function loadAlbumTracks(target=null, ttl=0) {
     $.ajax({
         type: "GET",
         url: spotify_url + 'albums/'+target+'/tracks',
@@ -73,11 +75,13 @@ function loadAlbumTracks(target=null) {
             display_song(resp);
         },
         error: function() {
-            getToken(loadAlbumTracks,target);
-        }})    
+            if (ttl < 10) {
+                getToken(loadAlbumTracks,target, ttl+1);
+            }
+        }})
 }
 
-function getToken(callback=null, arg=null) {
+function getToken(callback=null, arg=null, ttl=0) {
     $.ajax({
         type: "GET",
         url: API_ENDPOINT + "/getToken",
@@ -87,10 +91,9 @@ function getToken(callback=null, arg=null) {
             token = resp.access_token;
             localStorage.setItem("token_spotify", token);
             if (callback)
-                callback(arg);
+                callback(arg, ttl);
         },
         failure: function() {
-            console.log("FAILURE");
         }
     });
 }
