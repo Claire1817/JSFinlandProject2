@@ -1,5 +1,15 @@
 const API_ENDPOINT = "http://localhost:3000";
 
+
+if (localStorage.getItem("save_artists"))
+{
+    var artists = [];
+    var save_artists = JSON.parse(localStorage.getItem("save_artists"));
+    for (item in save_artists) {
+        artists.push(JSON.parse(save_artists[item]));
+    }
+}
+else {
 var artists = [
     {
      "id_display" : "jonny",
@@ -27,3 +37,11 @@ var artists = [
         "name" : "Coldplay",
     },
 ]
+
+var save_artists = []
+for (item in artists) {
+    save_artists.push(JSON.stringify(artists[item]))
+}
+
+localStorage.setItem("save_artists", JSON.stringify(save_artists));
+}
